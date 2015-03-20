@@ -16,6 +16,9 @@ angular.module('bs-select')
 			require: "ng-Model",
 			template: template,
 			link: function(scope, el, attr, ngModelCtrl) {
+				var keyTimeout;
+				var searchString = "";
+
 				scope.showDialog = false;
 				scope.selectedIndex = null;
 
@@ -63,11 +66,8 @@ angular.module('bs-select')
 
 					} else {								// all other keys
 
-						var i = getIndexFromChar(e.which);
-						if(i > -1) {
-							scope.selectedIndex = i;
-							positionDialog(scope.collection[scope.selectedIndex]);
-						}
+						highlightByText(e.which);
+
 					}
 				}
 
@@ -96,6 +96,20 @@ angular.module('bs-select')
 					scope.showDialog = false;
 				}
 
+				function highlightByText(charCode) {
+						searchString += String.fromCharCode(charCode);
+						var i = getIndexFromString(searchString);
+
+						if(i > -1) {
+							scope.selectedIndex = i;
+							positionDialog(scope.collection[scope.selectedIndex]);
+						}
+
+						keyTimeout = setTimeout(function() {
+							searchString = "";
+						}, 1000);
+				}
+
 				function getItemIndex(item) {
 					if(!item) return -1;
 					return _.findIndex(scope.collection, (iItem) => {
@@ -103,10 +117,10 @@ angular.module('bs-select')
 					});
 				}
 
-				function getIndexFromChar(charCode) {
-					var c = String.fromCharCode(charCode).toLowerCase();
+				function getIndexFromString(searchString) {
+					searchString = searchString.toLowerCase();
 					return _.findIndex(scope.collection, (iItem) => {
-						return iItem.value[0].toLowerCase() === c;
+						return iItem.value.toLowerCase().indexOf(searchString) === 0;
 					});
 				}
 

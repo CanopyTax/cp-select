@@ -95,6 +95,9 @@
 			require: "ng-Model",
 			template: template,
 			link: function link(scope, el, attr, ngModelCtrl) {
+				var keyTimeout;
+				var searchString = "";
+
 				scope.showDialog = false;
 				scope.selectedIndex = null;
 
@@ -143,11 +146,7 @@
 					} else {
 						// all other keys
 
-						var i = getIndexFromChar(e.which);
-						if (i > -1) {
-							scope.selectedIndex = i;
-							positionDialog(scope.collection[scope.selectedIndex]);
-						}
+						highlightByText(e.which);
 					}
 				};
 
@@ -176,6 +175,20 @@
 					scope.showDialog = false;
 				};
 
+				function highlightByText(charCode) {
+					searchString += String.fromCharCode(charCode);
+					var i = getIndexFromString(searchString);
+
+					if (i > -1) {
+						scope.selectedIndex = i;
+						positionDialog(scope.collection[scope.selectedIndex]);
+					}
+
+					keyTimeout = setTimeout(function () {
+						searchString = "";
+					}, 1000);
+				}
+
 				function getItemIndex(item) {
 					if (!item) {
 						return -1;
@@ -184,10 +197,10 @@
 					});
 				}
 
-				function getIndexFromChar(charCode) {
-					var c = String.fromCharCode(charCode).toLowerCase();
+				function getIndexFromString(searchString) {
+					searchString = searchString.toLowerCase();
 					return _.findIndex(scope.collection, function (iItem) {
-						return iItem.value[0].toLowerCase() === c;
+						return iItem.value.toLowerCase().indexOf(searchString) === 0;
 					});
 				}
 
