@@ -1,0 +1,229 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>Beanstalk Select</title>
+	<!-- TOOD(vojta): create simple favicon and cache it -->
+	<link href="data:image/x-icon;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQEAYAAABPYyMiAAAABmJLR0T///////8JWPfcAAAACXBIWXMAAABIAAAASABGyWs+AAAAF0lEQVRIx2NgGAWjYBSMglEwCkbBSAcACBAAAeaR9cIAAAAASUVORK5CYII="
+	rel="icon" type="image/x-icon" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body ng-app="app">
+	<div class="bss-topnav" ng-app>
+		<div class="bss-topnav__bar"></div>
+		<div class="bss-topnav__content" data-reactid=".0.0.1"><span class="bss-topnav__content__brand" data-reactid=".0.0.1.0"><img src="logo.png" alt="Company Logo" data-reactid=".0.0.1.0.0"></span>
+			<ul class="bss-topnav__content__menu">
+				<li><a href="https://github.com/Beanstalkhq/bs-select">Beanstalk Select on Github</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="bss-nav-content +full">
+		<div class="bss-fixed-focus bss-card">
+			<div class="bss-card__header bss-subheader">
+				Beanstalk Select
+			</div>
+			<div class="bss-card__body" ng-controller="testController">
+				<div class="form-group">
+					<bs-select collection="collection" ng-model="model"></bs-select>
+				</div>
+			</div>
+		</div>
+	</div>
+	<link type="text/css" href="node_modules/bs-styleguide/index.css" rel="stylesheet">
+	<link type="text/css" href="https://s3.amazonaws.com/icomoon.io/57942/BeanstalkIcons/style.css" rel="stylesheet">
+	<script type="text/javascript" src="node_modules/jquery/dist/jquery.js"></script>
+	<script type="text/javascript" src="node_modules/angular/angular.js"></script>
+	<script type="text/javascript" src="node_modules/lodash/index.js"></script>
+	<script type="text/javascript" src="node_modules/angular-mocks/angular-mocks.js"></script>
+	<script type="text/javascript" src="build/bs-select.js"></script>
+	<script>
+		angular.module('app', ['bs-select'])
+			.controller('testController', function($scope) {
+				scope.collection = [
+					{
+						"value": "Alabama",
+						"key": "AL"
+					}, {
+						"value": "Alaska",
+						"key": "AK"
+					}, {
+						"value": "American Samoa",
+						"key": "AS"
+					}, {
+						"value": "Arizona",
+						"key": "AZ"
+					}, {
+						"value": "Arkansas",
+						"key": "AR"
+					}, {
+						"value": "California",
+						"key": "CA"
+					}, {
+						"value": "Colorado",
+						"key": "CO"
+					}, {
+						"value": "Connecticut",
+						"key": "CT"
+					}, {
+						"value": "Delaware",
+						"key": "DE"
+					}, {
+						"value": "District Of Columbia",
+						"key": "DC"
+					}, {
+						"value": "Federated States Of Micronesia",
+						"key": "FM"
+					}, {
+						"value": "Florida",
+						"key": "FL"
+					}, {
+						"value": "Georgia",
+						"key": "GA"
+					}, {
+						"value": "Guam",
+						"key": "GU"
+					}, {
+						"value": "Hawaii",
+						"key": "HI"
+					}, {
+						"value": "Idaho",
+						"key": "ID"
+					}, {
+						"value": "Illinois",
+						"key": "IL"
+					}, {
+						"value": "Indiana",
+						"key": "IN"
+					}, {
+						"value": "Iowa",
+						"key": "IA"
+					}, {
+						"value": "Kansas",
+						"key": "KS"
+					}, {
+						"value": "Kentucky",
+						"key": "KY"
+					}, {
+						"value": "Louisiana",
+						"key": "LA"
+					}, {
+						"value": "Maine",
+						"key": "ME"
+					}, {
+						"value": "Marshall Islands",
+						"key": "MH"
+					}, {
+						"value": "Maryland",
+						"key": "MD"
+					}, {
+						"value": "Massachusetts",
+						"key": "MA"
+					}, {
+						"value": "Michigan",
+						"key": "MI"
+					}, {
+						"value": "Minnesota",
+						"key": "MN"
+					}, {
+						"value": "Mississippi",
+						"key": "MS"
+					}, {
+						"value": "Missouri",
+						"key": "MO"
+					}, {
+						"value": "Montana",
+						"key": "MT"
+					}, {
+						"value": "Nebraska",
+						"key": "NE"
+					}, {
+						"value": "Nevada",
+						"key": "NV"
+					}, {
+						"value": "New Hampshire",
+						"key": "NH"
+					}, {
+						"value": "New Jersey",
+						"key": "NJ"
+					}, {
+						"value": "New Mexico",
+						"key": "NM"
+					}, {
+						"value": "New York",
+						"key": "NY"
+					}, {
+						"value": "North Carolina",
+						"key": "NC"
+					}, {
+						"value": "North Dakota",
+						"key": "ND"
+					}, {
+						"value": "Northern Mariana Islands",
+						"key": "MP"
+					}, {
+						"value": "Ohio",
+						"key": "OH"
+					}, {
+						"value": "Oklahoma",
+						"key": "OK"
+					}, {
+						"value": "Oregon",
+						"key": "OR"
+					}, {
+						"value": "Palau",
+						"key": "PW"
+					}, {
+						"value": "Pennsylvania",
+						"key": "PA"
+					}, {
+						"value": "Puerto Rico",
+						"key": "PR"
+					}, {
+						"value": "Rhode Island",
+						"key": "RI"
+					}, {
+						"value": "South Carolina",
+						"key": "SC"
+					}, {
+						"value": "South Dakota",
+						"key": "SD"
+					}, {
+						"value": "Tennessee",
+						"key": "TN"
+					}, {
+						"value": "Texas",
+						"key": "TX"
+					}, {
+						"value": "Utah",
+						"key": "UT"
+					}, {
+						"value": "Vermont",
+						"key": "VT"
+					}, {
+						"value": "Virgin Islands",
+						"key": "VI"
+					}, {
+						"value": "Virginia",
+						"key": "VA"
+					}, {
+						"value": "Washington",
+						"key": "WA"
+					}, {
+						"value": "West Virginia",
+						"key": "WV"
+					}, {
+						"value": "Wisconsin",
+						"key": "WI"
+					}, {
+						"value": "Wyoming",
+						"key": "WY"
+					}
+				];
+
+				scope.model = scope.collection[20];
+			});
+	</script>
+</body>
+
+</html>
