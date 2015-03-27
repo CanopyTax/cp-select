@@ -1,5 +1,6 @@
 bs-select {
 	position: relative;
+	height: 32px;
 }
 
 .bs-select {
@@ -12,6 +13,7 @@ bs-select {
 	background-color: #fff;
 	cursor: pointer;
 	width: 100%;
+	height: 32px;
 }
 
 .bs-select.\+disabled {
