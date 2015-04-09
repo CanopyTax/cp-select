@@ -31,6 +31,9 @@ bs-select {
 .bs-select__selected {
 	width: calc(100% - 15px);
 	display: inline-block;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 .bs-select__icon {
