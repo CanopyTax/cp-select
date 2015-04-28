@@ -45,10 +45,12 @@ angular.module('bs-select')
 				});
 
 				scope.keyDown = function(e) {
-					e.preventDefault();
-
 					var key = e.which;
 					var item = ngModelCtrl.$viewValue;
+
+					if(key !== 9) {
+						e.preventDefault();
+					}
 
 					if(key === 13) {				// enter key
 
