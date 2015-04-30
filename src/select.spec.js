@@ -9,7 +9,7 @@ describe('multi-selector', function() {
 	beforeEach(inject(function($rootScope, $compile, $filter) {
 		elm = angular.element(
 			'<div style="margin:200px">' +
-				'<bs-select ng-model="model" collection="collection"></bs-select>' +
+				'<bs-select placeholder="Select a state" ng-model="model" collection="collection"></bs-select>' +
 			'</div>'
 		);
 
@@ -198,7 +198,7 @@ describe('multi-selector', function() {
 			}
 		];
 
-		scope.model = scope.collection[20];
+		//scope.model = scope.collection[20];
 
 		$compile(elm)(scope);
 		scope.$digest();

@@ -11,7 +11,8 @@ angular.module('bs-select')
 			restrict: "E",
 			transclude: true,
 			scope: {
-				collection: '='
+				collection: '=',
+				placeholder: '@'
 			},
 			require: "ng-Model",
 			template: template,
@@ -24,7 +25,7 @@ angular.module('bs-select')
 
 				ngModelCtrl.$render = function() {
 					var viewValue = ngModelCtrl.$viewValue ? getViewValue(ngModelCtrl.$viewValue) : "";
-					el.find('.bs-select__selected').text(viewValue);
+					el.find('.bs-select__selected').text(viewValue || scope.placeholder);
 				}
 
 				scope.updateModel = function(item) {
