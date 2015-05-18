@@ -149,16 +149,24 @@ angular.module('bs-select')
 
 					if (i > 5 && distanceFromEnd < 6) {
 						// Bottom 5
-						scope.dialogStyle = {
-							top: -222 - (5 - distanceFromEnd) * 36 + "px"
-						};
-						setTimeout(function () {
-							el.find(".bs-select__menu").scrollTop(36 * i - 180);
-						});
+						if(scope.collection.length < 11) {
+							// Dialog doesn't have a scroll
+							scope.dialogStyle = {
+								top: -2 + (36 * i * -1 - 20) + "px"
+							};
+						} else {
+							// Dialog has a scroll
+							scope.dialogStyle = {
+								top: -226 - (5 - distanceFromEnd) * 36 + "px"
+							};
+							setTimeout(function () {
+								el.find(".bs-select__menu").scrollTop(36 * i - 180);
+							});
+						}
 					} else if (i > 5) {
 						// Middle
 						scope.dialogStyle = {
-							top: "-198px"
+							top: "-203px"
 						};
 						setTimeout(function () {
 							el.find(".bs-select__menu").scrollTop(36 * i - 180);
@@ -166,7 +174,7 @@ angular.module('bs-select')
 					} else {
 						// Top 5
 						scope.dialogStyle = {
-							top: 2 + (36 * i * -1 - 20) + "px"
+							top: -2 + (36 * i * -1 - 20) + "px"
 						};
 					}
 				}

@@ -16,7 +16,8 @@ describe('multi-selector', function() {
 		$('body').append(elm);
 
 		scope = $rootScope.$new();
-		scope.collection = ["a", 'b', "c", "d", "e", "f", "g"];
+		scope.collection = ["a", 'b', "c", "d", "e", "f", "g", "h", "i", "j"];
+		/**
 		scope.collection = [
 			{
 				"value": "Alabama",
@@ -197,6 +198,7 @@ describe('multi-selector', function() {
 				"key": "WY"
 			}
 		];
+		**/
 
 		//scope.model = scope.collection[20];
 
