@@ -15,8 +15,25 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-			'node_modules/bs-styleguide/index.css',
-			'https://s3.amazonaws.com/icomoon.io/57942/BeanstalkIcons/style.css',
+			{
+				pattern: 'node_modules/canopy-styleguide/build/*.eot',
+				watched: true,
+				included: false,
+				served: true
+			},
+			{
+				pattern: 'node_modules/canopy-styleguide/build/*.ttf',
+				watched: true,
+				included: false,
+				served: true
+			},
+			{
+				pattern: 'node_modules/canopy-styleguide/build/*.woff',
+				watched: true,
+				included: false,
+				served: true
+			},
+			'node_modules/canopy-styleguide/build/styleguide.css',
 			'node_modules/jquery/dist/jquery.js',
       'node_modules/angular/angular.js',
       'node_modules/lodash/index.js',

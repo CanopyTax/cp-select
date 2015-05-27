@@ -1,4 +1,4 @@
-# bs-select
+# cp-select
 A consistently styled cross-browser and keyboard friendly select component
 
 ## Requirements
@@ -7,16 +7,16 @@ A consistently styled cross-browser and keyboard friendly select component
  - jQuery
 
 ## Installation
-1. Install through npm `npm install --save bs-select`
-2. Make sure your angular app depends upon 'bs-select':
+1. Install through npm `npm install --save cp-select`
+2. Make sure your angular app depends upon 'cp-select':
 ```javascript
-angular.module('app', ['bs-select']);
+angular.module('app', ['cp-select']);
 ```
 
 ## Usage
 ### Markup:
 ```html
-<bs-select ng-model="model" collection="collection"></bs-select>
+<cp-select ng-model="model" collection="collection"></cp-select>
 ```
 
 ```javascript
@@ -53,4 +53,4 @@ scope.collection = [
 
 ```
 ## Demo
-http://beanstalkhq.github.io/bs-select/
+http://canopytax.github.io/cp-select/

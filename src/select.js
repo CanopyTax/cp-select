@@ -4,8 +4,8 @@ var template = require('./select.html');
 
 require('./select.css');
 
-angular.module('bs-select')
-	.directive('bsSelect', ['$timeout', function($timeout) {
+angular.module('cp-select')
+	.directive('cpSelect', ['$timeout', function($timeout) {
 
 		return {
 			restrict: "E",
@@ -25,7 +25,7 @@ angular.module('bs-select')
 
 				ngModelCtrl.$render = function() {
 					var viewValue = ngModelCtrl.$viewValue ? getViewValue(ngModelCtrl.$viewValue) : "";
-					el.find('.bs-select__selected').text(viewValue || scope.placeholder);
+					el.find('.cp-select__selected').text(viewValue || scope.placeholder);
 				}
 
 				scope.updateModel = function(item) {
@@ -38,7 +38,7 @@ angular.module('bs-select')
 				}
 
 				scope.focusSelect = function() {
-					el.find('.bs-select').addClass('+focus');
+					el.find('.cp-select').addClass('+focus');
 				}
 
 				attr.$observe('disabled', function() {
@@ -97,7 +97,7 @@ angular.module('bs-select')
 				}
 
 				scope.onBlur = function(e) {
-					el.find('.bs-select').removeClass('+focus');
+					el.find('.cp-select').removeClass('+focus');
 					scope.closeDialog();
 				}
 
@@ -160,7 +160,7 @@ angular.module('bs-select')
 								top: -226 - (5 - distanceFromEnd) * 36 + "px"
 							};
 							setTimeout(function () {
-								el.find(".bs-select__menu").scrollTop(36 * i - 180);
+								el.find(".cp-select__menu").scrollTop(36 * i - 180);
 							});
 						}
 					} else if (i > 5) {
@@ -169,7 +169,7 @@ angular.module('bs-select')
 							top: "-203px"
 						};
 						setTimeout(function () {
-							el.find(".bs-select__menu").scrollTop(36 * i - 180);
+							el.find(".cp-select__menu").scrollTop(36 * i - 180);
 						});
 					} else {
 						// Top 5

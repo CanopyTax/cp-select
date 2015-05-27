@@ -1,6 +1,6 @@
 var jquery = require('jquery');
 var angular = require('angular');
 
-angular.module('bs-select', []);
+angular.module('cp-select', []);
 
 require('./select.js');

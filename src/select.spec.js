@@ -1,7 +1,7 @@
 describe('multi-selector', function() {
 	var elm, scope, input;
 
-	beforeEach(module('bs-select'));
+	beforeEach(module('cp-select'));
 	beforeEach(function() {
 		jasmine.clock().install();
 	});
@@ -9,7 +9,7 @@ describe('multi-selector', function() {
 	beforeEach(inject(function($rootScope, $compile, $filter) {
 		elm = angular.element(
 			'<div style="margin:200px">' +
-				'<bs-select placeholder="Select a state" ng-model="model" collection="collection"></bs-select>' +
+				'<cp-select placeholder="Select a state" ng-model="model" collection="collection"></cp-select>' +
 			'</div>'
 		);
 

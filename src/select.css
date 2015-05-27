@@ -1,10 +1,10 @@
-bs-select {
+cp-select {
 	position: relative;
 	height: 32px;
 	font-size: 12px;
 }
 
-.bs-select {
+.cp-select {
 	border-radius: 2px;
 	box-shadow: 0 1px 4px 0 rgba(0,0,0,.26);
 	display: inline-block;
@@ -17,22 +17,22 @@ bs-select {
 	height: 32px;
 }
 
-.bss-has-error .bs-select {
+.cps-has-error .cp-select {
 	box-shadow: 0 1px 4px 0 #FE996C;
 }
 
-.bs-select.\+disabled {
+.cp-select.\+disabled {
 	cursor: not-allowed;
 	background-color: #F9F9F9;
 	opacity: 1;
 	border: 1px dashed #CFCFCF;
 }
 
-.bs-select.\+focus {
+.cp-select.\+focus {
 	box-shadow: 0 0 0 2px rgba(76,175,80,.3); /* emulate the border */
 }
 
-.bs-select__selected {
+.cp-select__selected {
 	width: calc(100% - 15px);
 	display: inline-block;
 	white-space: nowrap;
@@ -40,7 +40,7 @@ bs-select {
 	text-overflow: ellipsis;
 }
 
-.bs-select__icon {
+.cp-select__icon {
 	display: inline-block;
 	border-color: #AFAFAF transparent;
 	border-style: solid;
@@ -52,7 +52,7 @@ bs-select {
 	top: 6px;
 }
 
-bs-select .bs-select__menu {
+cp-select .cp-select__menu {
 	display: block;
 	max-height: 400px;
 	overflow: auto;
@@ -61,17 +61,17 @@ bs-select .bs-select__menu {
 	font-size: 12px;
 }
 
-bs-select .bs-select__menu li {
+cp-select .cp-select__menu li {
 	height: 36px!important;
 }
 
-bs-select .bs-select__menu li.\+selected > a {
+cp-select .cp-select__menu li.\+selected > a {
 	color: #333333;
 	text-decoration: none;
 	background-color: #f7f7f7;
 }
 
-.bs-select__hidden-input {
+.cp-select__hidden-input {
 	opacity: 0;
 	position: absolute;
 	left: 0;
