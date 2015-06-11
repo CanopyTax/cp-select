@@ -1,6 +1,6 @@
 {
   "name": "cp-select",
-  "version": "1.3.2",
+  "version": "1.4.0",
   "description": "A consistently styled cross-browser select component",
   "main": "build/cp-select.js",
   "scripts": {

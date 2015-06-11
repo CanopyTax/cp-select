@@ -12,23 +12,34 @@ angular.module('cp-select')
 			transclude: true,
 			scope: {
 				collection: '=',
-				placeholder: '@'
+				placeholder: '@',
+				keyModel: '@'
 			},
 			require: "ng-Model",
 			template: template,
 			link: function(scope, el, attr, ngModelCtrl) {
 				var keyTimeout;
 				var searchString = "";
+				var keyModel = _.has(attr, 'keyModel');
 
 				scope.showDialog = false;
 				scope.selectedIndex = null;
 
 				ngModelCtrl.$render = function() {
 					var viewValue = ngModelCtrl.$viewValue ? getViewValue(ngModelCtrl.$viewValue) : "";
-					el.find('.cp-select__selected').text(viewValue || scope.placeholder);
+
+					if(keyModel) {
+						viewValue = getOptionFromKey(viewValue);
+						viewValue = viewValue ? viewValue.value : '';
+					}
+
+					el.find('.cp-select__selected').text(
+						viewValue || scope.placeholder
+					);
 				}
 
 				scope.updateModel = function(item) {
+					if(keyModel) item = item.key;
 					ngModelCtrl.$setViewValue(item);
 					ngModelCtrl.$render();
 					scope.closeDialog();
@@ -103,6 +114,10 @@ angular.module('cp-select')
 
 				scope.closeDialog = function(e) {
 					scope.showDialog = false;
+				}
+
+				function getOptionFromKey(key) {
+					return _.find(scope.collection, {key: key});
 				}
 
 				function highlightByText(charCode) {

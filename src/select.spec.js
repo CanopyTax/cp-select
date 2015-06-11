@@ -10,14 +10,15 @@ describe('multi-selector', function() {
 		elm = angular.element(
 			'<div style="margin:200px">' +
 				'<cp-select placeholder="Select a state" ng-model="model" collection="collection"></cp-select>' +
+				'<div>{{model}}</div>'+ 
 			'</div>'
 		);
 
 		$('body').append(elm);
 
 		scope = $rootScope.$new();
-		scope.collection = ["a", 'b', "c", "d", "e", "f", "g", "h", "i", "j"];
-		/**
+		// scope.collection = ["a", 'b', "c", "d", "e", "f", "g", "h", "i", "j"];
+
 		scope.collection = [
 			{
 				"value": "Alabama",
@@ -198,9 +199,8 @@ describe('multi-selector', function() {
 				"key": "WY"
 			}
 		];
-		**/
 
-		//scope.model = scope.collection[20];
+		scope.model = scope.collection[20];
 
 		$compile(elm)(scope);
 		scope.$digest();
