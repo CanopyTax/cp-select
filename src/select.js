@@ -20,7 +20,7 @@ angular.module('cp-select')
 			link: function(scope, el, attr, ngModelCtrl) {
 				var keyTimeout;
 				var searchString = "";
-				var keyModel = attr.keyModel;
+				var keyModel = !_.isUndefined(attr.keyModel);
 
 				scope.showDialog = false;
 				scope.selectedIndex = null;
