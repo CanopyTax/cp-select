@@ -52,5 +52,12 @@ scope.collection = [
 ];
 
 ```
+## Options
+If you would like the selected model to be only the `key` attribute of the selected item, pass `key-model` as an attribute to the directive:
+
+```html
+<cp-select key-model ng-model="model" collection="collection"></cp-select>
+```
+
 ## Demo
 http://canopytax.github.io/cp-select/
