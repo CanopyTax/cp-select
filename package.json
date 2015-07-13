@@ -1,8 +1,8 @@
 {
   "name": "cp-select",
-  "version": "1.4.2",
+  "version": "1.4.3",
   "description": "A consistently styled cross-browser select component",
-  "main": "build/cp-select.js",
+  "main": "src/cp-select.js",
   "scripts": {
     "test": "node node_modules/karma/bin/karma start",
     "build": "webpack --optimize-minimize"
