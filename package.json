@@ -41,6 +41,6 @@
     "lodash": "^3.5.0"
   },
 	"optionalDependencies": {
-    "canopy-styleguide": "^1.1.0"
+    "canopy-styleguide": "latest"
 	}
 }
