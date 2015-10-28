@@ -28,7 +28,7 @@
 					<cp-select class="cps-col-xs-4" collection="collection" ng-model="model"></cp-select>
 				</div>
 				<div class="form-group cps-row cps-margin-top-16">
-					<cp-select disabled class="cps-col-xs-4" collection="collection" ng-model="model"></cp-select>
+					<cp-select disabled placeholder="Select a state" class="cps-col-xs-4" collection="collection" ng-model="model"></cp-select>
 				</div>
 			</div>
 		</div>
@@ -43,6 +43,9 @@
 			.controller('testController', function($scope) {
 				$scope.collection = [
 					{
+						"value": "",
+						"key": ""
+					},{
 						"value": "Alabama",
 						"key": "AL"
 					}, {

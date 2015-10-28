@@ -65,6 +65,10 @@ cp-select .cp-select__menu li {
 	height: 36px!important;
 }
 
+cp-select .cp-select__menu li > a {
+	height: 33px;
+}
+
 cp-select .cp-select__menu li.\+selected > a {
 	color: #333333;
 	text-decoration: none;

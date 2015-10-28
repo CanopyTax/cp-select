@@ -7,6 +7,6 @@
 </div>
 <ul ng-style="dialogStyle" class="cp-select__menu cps-dropdown-menu" role="menu" ng-if="showDialog">
 	<li ng-mousedown="updateModel(item)" ng-repeat="item in ::collection" ng-class="{'+selected': (selectedIndex === $index)}">
-		<a>{{item.value ? (item.value) : (item)}}</a>
+		<a>{{isString(item.value) ? item.value : item}}</a>
 	</li>
 </ul>

@@ -24,6 +24,7 @@ angular.module('cp-select')
 
 				scope.showDialog = false;
 				scope.selectedIndex = null;
+				scope.isString = _.isString;
 
 				ngModelCtrl.$render = function() {
 					var viewValue = ngModelCtrl.$viewValue ? getViewValue(ngModelCtrl.$viewValue) : "";
@@ -33,9 +34,9 @@ angular.module('cp-select')
 						viewValue = viewValue ? viewValue.value : '';
 					}
 
-					el.find('.cp-select__selected').text(
-						viewValue || scope.placeholder
-					);
+					if(!_.isString(viewValue)) viewValue = scope.placeholder;
+					
+					el.find('.cp-select__selected').text(viewValue);
 				}
 
 				scope.updateModel = function(item) {
@@ -72,12 +73,14 @@ angular.module('cp-select')
 
 						scope.showDialog = true;
 						scope.selectedIndex = _.isNull(scope.selectedIndex) ? getItemIndex(item) : scope.selectedIndex - 1;
+						if (scope.selectedIndex < 0) scope.selectedIndex = 0;
 						positionDialog(scope.collection[scope.selectedIndex]);
 
 					} else if(key === 40) { // down key
 
 						scope.showDialog = true;
 						scope.selectedIndex = _.isNull(scope.selectedIndex) ? getItemIndex(item) : scope.selectedIndex + 1;
+						if (scope.selectedIndex > scope.collection.length - 1) scope.selectedIndex = scope.collection.length - 1;
 						positionDialog(scope.collection[scope.selectedIndex]);
 
 					} else if(key === 27) { // escape key
@@ -154,7 +157,7 @@ angular.module('cp-select')
 				}
 
 				function getViewValue(option) {
-					return option.value || option;
+					return _.isString(option.value) ? option.value : option;		
 				}
 
 				function positionDialog(item) {
