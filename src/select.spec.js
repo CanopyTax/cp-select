@@ -1,5 +1,5 @@
 describe('multi-selector', function() {
-	var elm, scope, input;
+	var elm, scope, input, cpSelect;
 
 	beforeEach(module('cp-select'));
 	beforeEach(function() {
@@ -21,6 +21,9 @@ describe('multi-selector', function() {
 
 		scope.collection = [
 			{
+				"value": "",
+				"key": ""
+			},{
 				"value": "Alabama",
 				"key": "AL"
 			}, {
@@ -204,6 +207,8 @@ describe('multi-selector', function() {
 
 		$compile(elm)(scope);
 		scope.$digest();
+		input = elm.find('.cp-select__hidden-input');
+		cpSelect = elm.find('cp-select');
 	}));
 
 	afterEach(function() {
@@ -215,4 +220,23 @@ describe('multi-selector', function() {
 	it('Should boot', function() {
 		expect(1).toBe(1);
 	});
+
+
+	it('should jump Hawaii on "h" key press', function() {
+			
+		cpSelect.click();
+		input.trigger({type: 'keydown', which: 72, keyCode: 72}); //'h'
+		input.trigger({type: 'keydown', which: 13, keyCode: 13}); //Enter
+		expect(elm.find('.cp-select__selected').text()).toBe('Hawaii');
+	});
+
+	it("should show placeholder text, 'Select a state', when toggled to the empty string", function() {
+		
+		cpSelect.click();
+		input.trigger({type: 'keydown', which: 65, keyCode: 65}); //'a'
+		input.trigger({type: 'keydown', which: 38, keyCode: 38}); //Up Arrow
+		input.trigger({type: 'keydown', which: 13, keyCode: 13}); //Enter
+		expect(elm.find('.cp-select__selected').text()).toBe('Select a state');
+	});
+
 });

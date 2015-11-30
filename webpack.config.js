@@ -29,6 +29,7 @@ module.exports = {
 		"angular": "angular",
 		"lodash": "_"
 	},
+	devtool: "sourcemap",
 	plugins: [
 		new webpack.BannerPlugin("\
 " + name + "\n\
