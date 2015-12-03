@@ -53,8 +53,13 @@ angular.module('cp-select')
 					el.find('.cp-select').addClass('+focus');
 				}
 
-				attr.$observe('disabled', function() {
-					scope.disabled = _.has(attr, 'disabled');
+				attr.$observe('disabled', function (value) {
+					if (_.has(attr, 'ngDisabled')) {
+						scope.disabled = value;
+					}
+					else {
+						scope.disabled = _.has(attr, 'disabled');
+					}
 				});
 
 				scope.keyDown = function(e) {
