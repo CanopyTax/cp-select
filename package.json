@@ -44,5 +44,8 @@
   },
   "optionalDependencies": {
     "canopy-styleguide": "latest"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
   }
 }
