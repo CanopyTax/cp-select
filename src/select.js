@@ -13,7 +13,9 @@ angular.module('cp-select')
 			scope: {
 				collection: '=',
 				placeholder: '@',
-				keyModel: '@'
+				keyModel: '@',
+				transparent: '@',
+				appendText: '@'
 			},
 			require: "ng-Model",
 			template: template,
@@ -36,7 +38,7 @@ angular.module('cp-select')
 
 					if(!_.isString(viewValue)) viewValue = scope.placeholder;
 					
-					el.find('.cp-select__selected').text(viewValue);
+					el.find('.cp-select__selected').text(scope.appendText + " " + viewValue);
 				}
 
 				scope.updateModel = function(item) {

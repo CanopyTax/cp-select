@@ -16,6 +16,13 @@ cp-select {
 	height: 32px;
 }
 
+.cp-select-transparent{
+	border-radius: 0px;
+	box-shadow: none;
+	background: rgba(0, 0, 0, 0);
+	color: black;
+}
+
 .cps-has-error .cp-select {
 	box-shadow: 0 1px 4px 0 #FE996C;
 }

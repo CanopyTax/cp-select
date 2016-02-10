@@ -1,5 +1,5 @@
 <input class="cp-select__hidden-input" type="text" ng-disabled="disabled" ng-focus="focusSelect()" ng-blur="onBlur($event)" ng-keydown="keyDown($event)"/>
-<div class="cp-select" ng-click="!disabled && toggleDialog()" ng-class="{'+disabled': disabled}">
+<div class="cp-select" ng-click="!disabled && toggleDialog()" ng-class="{'cp-select-transparent': transparent, '+disabled': disabled}">
 	<div class="cp-select__selected">
 	</div>
 	<div class="cp-select__icon">
@@ -7,6 +7,6 @@
 </div>
 <ul ng-style="dialogStyle" class="cp-select__menu cps-dropdown-menu" role="menu" ng-if="showDialog">
 	<li ng-mousedown="updateModel(item)" ng-repeat="item in ::collection" ng-class="{'+selected': (selectedIndex === $index)}">
-		<a>{{isString(item.value) ? item.value : item}}</a>
+		<a>{{appendText}} {{isString(item.value) ? item.value : item}}</a>
 	</li>
 </ul>
