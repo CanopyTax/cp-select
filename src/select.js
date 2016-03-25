@@ -23,22 +23,22 @@ angular.module('cp-select')
 				var keyTimeout;
 				var searchString = "";
 				var keyModel = !_.isUndefined(attr.keyModel);
+				scope.appendText = scope.appendText ? scope.appendText + ' ' : "";
 
 				scope.showDialog = false;
 				scope.selectedIndex = null;
-				scope.isString = _.isString;
 
 				ngModelCtrl.$render = function() {
 					var viewValue = ngModelCtrl.$viewValue ? getViewValue(ngModelCtrl.$viewValue) : "";
 
-					if(keyModel) {
+					if (keyModel) {
 						viewValue = getOptionFromKey(viewValue);
-						viewValue = viewValue ? viewValue.value : '';
+						viewValue = viewValue ? viewValue.value : "";
 					}
 
-					if(!_.isString(viewValue)) viewValue = scope.placeholder;
-					
-					el.find('.cp-select__selected').text(scope.appendText + " " + viewValue);
+					viewValue = (_.isString(viewValue) && viewValue.length > 0) ? viewValue : scope.placeholder;
+
+					el.find('.cp-select__selected').text(scope.appendText + '' + viewValue);
 				}
 
 				scope.updateModel = function(item) {
@@ -151,14 +151,14 @@ angular.module('cp-select')
 				function getItemIndex(item) {
 					if(!item) return -1;
 					var isObject = _.has(item, 'value');
-					return _.findIndex(scope.collection, (iItem) => {
+					return _.findIndex(scope.collection, function(iItem) {
 						return isObject ? item.key === iItem.key : item === iItem;
 					});
 				}
 
 				function getIndexFromString(searchString) {
 					searchString = searchString.toLowerCase();
-					return _.findIndex(scope.collection, (iItem) => {
+					return _.findIndex(scope.collection, function(iItem) {
 						return getViewValue(iItem).toLowerCase().indexOf(searchString) === 0;
 					});
 				}
