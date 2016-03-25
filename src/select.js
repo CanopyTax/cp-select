@@ -28,6 +28,7 @@ angular.module('cp-select')
 
 				scope.showDialog = false;
 				scope.selectedIndex = null;
+				scope.isString = _.isString;
 
 				ngModelCtrl.$render = function() {
 					var viewValue = ngModelCtrl.$viewValue ? getViewValue(ngModelCtrl.$viewValue) : "";
