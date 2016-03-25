@@ -22,6 +22,7 @@ angular.module('cp-select')
 			link: function(scope, el, attr, ngModelCtrl) {
 				var keyTimeout;
 				var searchString = "";
+				scope.placeholder = scope.placeholder || "";
 				var keyModel = !_.isUndefined(attr.keyModel);
 				scope.appendText = scope.appendText ? scope.appendText + ' ' : "";
 
