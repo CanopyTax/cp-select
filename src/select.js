@@ -15,7 +15,8 @@ angular.module('cp-select')
 				placeholder: '@',
 				keyModel: '@',
 				transparent: '@',
-				appendText: '@'
+				appendText: '@',
+				autosizeInput: '@'
 			},
 			require: "ng-Model",
 			template: template,
