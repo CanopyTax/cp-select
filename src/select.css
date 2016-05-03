@@ -39,7 +39,7 @@ cp-select {
 }
 
 .cp-select__selected {
-	width: calc(100% - 15px);
+	width: calc(100% - 35px);
 	display: inline-block;
 	white-space: nowrap;
 	overflow: hidden;
@@ -56,6 +56,16 @@ cp-select {
 	float:right;
 	position: relative;
 	top: 6px;
+}
+
+.cp-select__right {
+	float: right;
+}
+
+.cp-select__clear {
+	font-size: 1.7rem !important;
+	color: #AFAFAF !important;
+	margin-right: 0.5rem;
 }
 
 cp-select .cp-select__menu {
@@ -88,4 +98,3 @@ cp-select .cp-select__menu li.\+selected > a {
 	width: 0;
 	height: 0;
 }
-
