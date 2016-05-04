@@ -16,7 +16,8 @@ angular.module('cp-select')
 				keyModel: '@',
 				transparent: '@',
 				appendText: '@',
-				autosizeInput: '@'
+				autosizeInput: '@',
+				allowClear: '@'
 			},
 			require: "ng-Model",
 			template: template,
@@ -45,13 +46,21 @@ angular.module('cp-select')
 				}
 
 				scope.updateModel = function(item) {
-					if(keyModel) item = item.key;
+					if(keyModel && !!item) item = item.key;
 					ngModelCtrl.$setViewValue(item);
 					ngModelCtrl.$render();
 					scope.closeDialog();
 					setTimeout(function() {
 						el.find('input').focus();
 					})
+				}
+
+				scope.isEmpty = function() {
+					return !ngModelCtrl.$viewValue;
+				}
+
+				scope.clear = function(event) {
+					scope.updateModel(null);
 				}
 
 				scope.focusSelect = function() {
@@ -167,7 +176,7 @@ angular.module('cp-select')
 				}
 
 				function getViewValue(option) {
-					return _.isString(option.value) ? option.value : option;		
+					return _.isString(option.value) ? option.value : option;
 				}
 
 				function positionDialog(item) {

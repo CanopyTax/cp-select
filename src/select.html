@@ -2,7 +2,11 @@
 <div class="cp-select" ng-click="!disabled && toggleDialog()" ng-class="{'cp-select-transparent': transparent, '+disabled': disabled, 'cps-form-control-resize': autosizeInput}">
 	<div class="cp-select__selected">
 	</div>
-	<div class="cp-select__icon">
+	<div class="cp-select__right">
+		<a ng-click="clear($event)" ng-show="allowClear && !isEmpty()">
+			<i class="cp-select__clear cps-icon cps-icon-close"></i>
+		</a>
+		<div class="cp-select__icon"></div>
 	</div>
 </div>
 <ul ng-style="dialogStyle" class="cp-select__menu cps-dropdown-menu" role="menu" ng-if="showDialog">
