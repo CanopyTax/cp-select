@@ -17,7 +17,9 @@ angular.module('cp-select')
 				transparent: '@',
 				appendText: '@',
 				autosizeInput: '@',
-				allowClear: '@'
+				allowClear: '@',
+				linkText: '@?', // Puts a link at the bottom of the menu with this text
+				linkHref: '@?', // The url for the link
 			},
 			require: "ng-Model",
 			template: template,
