@@ -57,6 +57,10 @@ angular.module('cp-select')
 					})
 				}
 
+				scope.goToHref = function(href) {
+					window.location = href;
+				}
+
 				scope.isEmpty = function() {
 					return !ngModelCtrl.$viewValue;
 				}
