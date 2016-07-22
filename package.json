@@ -12,10 +12,6 @@
     "type": "git",
     "url": "https://github.com/canopytax/cp-select.git"
   },
-  "files": [
-    "build",
-    "src"
-  ],
   "author": "Bret Little",
   "license": "MIT",
   "bugs": {
