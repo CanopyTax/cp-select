@@ -6,6 +6,7 @@
   "scripts": {
     "test": "node node_modules/karma/bin/karma start",
     "build": "webpack --optimize-minimize",
+    "prepublish": "npm run build",
     "start": "static"
   },
   "repository": {
