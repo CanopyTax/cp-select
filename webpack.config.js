@@ -57,8 +57,7 @@ module.exports = {
 author: Bret Little\n\
 copyright: 2015\n\
 license: MIT\n\
-version: ' +
-        version
+version: ' + version
     ),
   ],
 };
