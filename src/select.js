@@ -35,6 +35,7 @@ angular.module('cp-select').directive('cpSelect', [
         scope.isString = _.isString;
 
         ngModelCtrl.$render = function() {
+          scope.selectedIndex = getItemIndex(ngModelCtrl.$viewValue);
           var viewValue = ngModelCtrl.$viewValue
             ? getViewValue(ngModelCtrl.$viewValue)
             : '';
